@@ -45,7 +45,7 @@ export default function NavBar() {
             }
           >
             <NavLink
-              to="/catalog"
+              to="/"
               className={
                 nav === "Horizontal" ? styles.navItem : styles.navItemRow
               }
@@ -75,7 +75,7 @@ export default function NavBar() {
               <span className={styles.navTitle}>My Cart</span>
             </NavLink>
             <NavLink
-              to="/"
+              to="/settings"
               className={
                 nav === "Horizontal" ? styles.navItem : styles.navItemRow
               }

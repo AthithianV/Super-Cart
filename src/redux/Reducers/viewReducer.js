@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  nav: "Vertical",
-  catalog: "ViewAll",
+  nav: "Horizontal",
+  catalog: "Carousal",
   card: "Premium",
 };
 
