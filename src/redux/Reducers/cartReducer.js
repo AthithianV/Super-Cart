@@ -25,8 +25,10 @@ const cartSlice = createSlice({
 
     // Reducer to delete item from cart, accept index in cart array as paylaod
     deleteFromCart: (state, action) => {
-      state.cart.splice(action.payload, 1);
-      alert("Item Deleted from Cart");
+      if (window.confirm("Are you sure you want to delete?")) {
+        state.cart.splice(action.payload, 1);
+        alert("Item Deleted from Cart");
+      }
     },
 
     // Set showCart to display cart.

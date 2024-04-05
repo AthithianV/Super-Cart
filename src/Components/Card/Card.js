@@ -31,8 +31,7 @@ export default function Card({ product, index }) {
           className={styles.heart}
           onClick={() => {
             if (showCart) {
-              if (window.confirm("Are you sure you want to delete? "))
-                dispatch(cartActions.deleteFromCart(index));
+              dispatch(cartActions.deleteFromCart(index));
             } else {
               dispatch(cartActions.addTocart(product));
             }
@@ -44,7 +43,7 @@ export default function Card({ product, index }) {
 
       {/* Image container */}
       <div className={styles.imgContainer}>
-        <img src={product.image} className={styles.img} alt="product Image" />
+        <img src={product.image} className={styles.img} alt="product" />
       </div>
 
       {/* Title, the size of title is set to 30 characters */}
@@ -111,8 +110,7 @@ export default function Card({ product, index }) {
           className={styles.removeBtn}
           type="button"
           onClick={() => {
-            if (window.confirm("Are you sure you want to delete? "))
-              dispatch(cartActions.deleteFromCart(index));
+            dispatch(cartActions.deleteFromCart(index));
           }}
         >
           Remove From Cart
