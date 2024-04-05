@@ -1,18 +1,19 @@
-import PageView from "../../Components/Full_View/fullView";
-import HorizontalNavBar from "../../Components/HorizontalNavbar/HorizontalNavbar";
-import VerticalNavBar from "../../Components/VerticalNavbar/VerticalNavbar";
-import Carousal from "../../Components/carousal/carousal";
+import Premium from "../../Components/Cards/Premium/Premium";
+import Standard from "../../Components/Cards/Standard/Standard";
+import PageView from "../../Components/Catalog/PageView/PageView";
+import Carousal from "../../Components/Catalog/carousal/carousal";
+import HorizontalNavBar from "../../Components/Navbars/HorizontalNavbar/HorizontalNavbar";
+import VerticalNavBar from "../../Components/Navbars/VerticalNavbar/VerticalNavbar";
 import { viewSelector } from "../../redux/viewReducer";
-import { useSelector } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 export default function View() {
-  const { nav, catalog, card } = useSelector(viewSelector);
+  const { nav, catalog } = useSelector(viewSelector);
 
   return (
     <>
       {nav == "Horizontal" ? <HorizontalNavBar /> : <VerticalNavBar />}
       {catalog == "Carousal" ? <Carousal /> : <PageView />}
-      {card == "Standard" ? }
     </>
   );
 }

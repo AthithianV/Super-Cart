@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import styles from "./Navbar1.module.css";
+import styles from "./HorizontalNavbar.module.css";
 
 export default function HorizontalNavBar() {
   return (
