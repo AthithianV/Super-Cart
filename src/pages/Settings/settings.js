@@ -1,7 +1,7 @@
 import styles from "./settings.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { viewActions } from "../../redux/viewReducer";
+import { viewActions } from "../../redux/Reducers/viewReducer";
 import { useNavigate } from "react-router-dom";
 
 export default function Settings() {
@@ -36,7 +36,7 @@ export default function Settings() {
               <td>
                 <select
                   className={styles.select}
-                  onChange={(e) => setNav(e.current.value)}
+                  onChange={(e) => setNav(e.target.value)}
                 >
                   <option>Horizontal</option>
                   <option>Vertical</option>
@@ -52,7 +52,10 @@ export default function Settings() {
               <td>
                 <select
                   className={styles.select}
-                  onChange={(e) => setCatalog(e.current.value)}
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setCatalog(e.target.value);
+                  }}
                 >
                   <option>Carousal</option>
                   <option>View All</option>
@@ -68,7 +71,9 @@ export default function Settings() {
               <td>
                 <select
                   className={styles.select}
-                  onChange={(e) => setCard(e.current.value)}
+                  onChange={(e) => {
+                    setCard(e.target.value);
+                  }}
                 >
                   <option>Standard</option>
                   <option>Premium</option>

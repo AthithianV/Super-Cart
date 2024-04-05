@@ -1,0 +1,45 @@
+/* .main{
+    margin-top: 2vh;
+} */
+
+.main{
+    margin: auto;
+    width: fit-content;
+    flex-grow: 1;
+    overflow: auto;
+    height: 87vh;
+}
+
+.main::-webkit-scrollbar-track{
+    width: 5px;
+}
+
+.cards{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: 0.5ms ease-in-out;
+}
+
+.setVertical{
+    height: 100vh;
+}
+
+.more{
+    color: blue;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.arrow{
+    color: white;
+    padding: 10px;
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+

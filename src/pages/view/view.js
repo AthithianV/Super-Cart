@@ -1,19 +1,21 @@
-import Premium from "../../Components/Cards/Premium/Premium";
-import Standard from "../../Components/Cards/Standard/Standard";
 import PageView from "../../Components/Catalog/PageView/PageView";
 import Carousal from "../../Components/Catalog/carousal/carousal";
-import HorizontalNavBar from "../../Components/Navbars/HorizontalNavbar/HorizontalNavbar";
-import VerticalNavBar from "../../Components/Navbars/VerticalNavbar/VerticalNavbar";
-import { viewSelector } from "../../redux/viewReducer";
+import { viewSelector } from "../../redux/Reducers/viewReducer";
 import { useSelector } from "react-redux";
+import styles from "./view.module.css";
+import NavBar from "../../Components/Navbar/Navbar";
+import Cart from "../cart/cart";
+import { cartSelector } from "../../redux/Reducers/cartReducer";
 
 export default function View() {
   const { nav, catalog } = useSelector(viewSelector);
+  const { showCart } = useSelector(cartSelector);
 
   return (
-    <>
-      {nav == "Horizontal" ? <HorizontalNavBar /> : <VerticalNavBar />}
-      {catalog == "Carousal" ? <Carousal /> : <PageView />}
-    </>
+    <div className={nav === "Horizontal" ? styles.col : styles.row}>
+      <NavBar />
+      {catalog === "Carousal" ? <Carousal /> : <PageView />}
+      {showCart ? <Cart /> : <></>}
+    </div>
   );
 }

@@ -7,9 +7,11 @@ const initialState = {
 };
 
 export const getProducts = createAsyncThunk("product/get", async (items) => {
-  console.log(items);
   const products = await fetch(
-    "https://fakestoreapi.com/products?limit=" + `${items}`
+    // Currently fakestroeapi does not support offset because of which we
+    // end up making calls to get all product each time page is changed,
+    // but this can be change if they support offset, we can make calls that get only required products.
+    `${"https://fakestoreapi.com/products?limit="}${items}`
   );
   return products.json();
 });

@@ -1,8 +1,11 @@
 .main{
     width: 100vw;
-    height: 95vh;
     overflow: hidden;
     margin: 25px auto 0 auto;
+}
+
+.mt50{
+    margin-top: 50px;
 }
 
 .slider{
@@ -37,7 +40,6 @@
 
 @media screen and (min-width: 500px) {
     .main {
-        margin-top: 10px;
         width: 80vw;
     }
     .slider{

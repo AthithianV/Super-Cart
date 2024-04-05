@@ -2,21 +2,20 @@ import { useRef } from "react";
 import styles from "./carousal.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { viewSelector } from "../../../redux/viewReducer";
-import Standard from "../../Cards/Standard/Standard";
-import Premium from "../../Cards/Premium/Premium";
+import { viewSelector } from "../../../redux/Reducers/viewReducer";
 import {
   getProducts,
   productActions,
   productSelector,
-} from "../../../redux/productReducer";
+} from "../../../redux/Reducers/productReducer";
+import Card from "../../Card/Card";
 
 export default function Carousal() {
   const sliderRef = useRef();
   const dispatch = useDispatch();
 
   const { page, items_per_page, products } = useSelector(productSelector);
-  const { card } = useSelector(viewSelector);
+  const { nav } = useSelector(viewSelector);
 
   // Hook to set items per page.
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function Carousal() {
       "--items-per-screen"
     );
     dispatch(productActions.setItemsPerPage(items_per_page));
-  }, []);
+  }, [dispatch]);
 
   // Hook to set the --slider-index property when page is changed and also to get products.
   useEffect(() => {
@@ -33,18 +32,16 @@ export default function Carousal() {
       dispatch(getProducts(items_per_page * (page + 1)));
     }
     sliderRef.current.style.setProperty("--slider-index", page);
-  }, [dispatch, page]);
+  }, [dispatch, page, items_per_page]);
 
   return (
-    <div className={styles.main}>
+    <div
+      className={`${styles.main} ${nav === "Horizontal" ? "" : styles.mt50}`}
+    >
       <div className={styles.slider} ref={sliderRef}>
-        {products.map((p, index) =>
-          card === "Standard" ? (
-            <Standard key={index} product={p} />
-          ) : (
-            <Premium key={index} product={p} />
-          )
-        )}
+        {products.map((p, index) => (
+          <Card key={index} product={p} />
+        ))}
       </div>
       <div className={styles.page}>
         <button

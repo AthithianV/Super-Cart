@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  navView: "Horizontal",
-  catalogView: "Carousal",
-  cardView: "Standard",
+  nav: "Vertical",
+  catalog: "ViewAll",
+  card: "Premium",
 };
 
 export const viewSlice = createSlice({
@@ -12,9 +12,9 @@ export const viewSlice = createSlice({
   reducers: {
     setViews: (state, action) => {
       const { nav, catalog, card } = action.payload;
-      state.navView = nav;
-      state.catalogView = catalog;
-      state.cardView = card;
+      state.nav = nav;
+      state.catalog = catalog;
+      state.card = card;
     },
   },
 });

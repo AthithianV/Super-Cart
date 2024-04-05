@@ -1,29 +1,54 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import styles from "./HorizontalNavbar.module.css";
+import styles from "./Navbar.module.css";
+import { viewSelector } from "../../redux/Reducers/viewReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../redux/Reducers/cartReducer";
 
-export default function HorizontalNavBar() {
+export default function NavBar() {
+  const { nav } = useSelector(viewSelector);
+  const dispatch = useDispatch();
+
   return (
     <>
       {/* Navigation bar */}
-      <nav className={styles.nav}>
+      <nav className={nav === "Horizontal" ? styles.nav : styles.navRow}>
         <div className={styles.left}>
-          <ul className={styles.navList}>
+          <ul
+            className={
+              nav === "Horizontal" ? styles.navList : styles.navListRow
+            }
+          >
             {/* Logo  - on click redirect to home page*/}
-            <Link to="/" className={`${styles.navItem}`}>
+            <Link
+              to="/"
+              className={
+                nav === "Horizontal"
+                  ? `${styles.navItem}`
+                  : `${styles.navItem} ${styles.brandRow}`
+              }
+            >
               <img
-                className={`${styles.icon} ${styles.brandlogo}`}
+                className={`${styles.icon} ${
+                  nav === "Horizontal" ? styles.brandlogo : styles.brandlogoRow
+                }`}
                 src="https://cdn-icons-png.flaticon.com/128/2430/2430422.png"
                 alt="logo"
               />
-              <span className={styles.logo}>SuperCart</span>
+              <span className={styles.navTitle}>SuperCart</span>
             </Link>
           </ul>
         </div>
         <div className={styles.right}>
-          <ul className={styles.navList}>
+          <ul
+            className={
+              nav === "Horizontal" ? styles.navList : styles.navListRow
+            }
+          >
             <NavLink
               to="/catalog"
-              className={`${styles.navItem}`}
+              className={
+                nav === "Horizontal" ? styles.navItem : styles.navItemRow
+              }
               style={(isActive) => (isActive ? { color: "red" } : null)}
             >
               <img
@@ -35,12 +60,15 @@ export default function HorizontalNavBar() {
             </NavLink>
             {/* Cart */}
             <NavLink
-              to="/cart"
-              className={styles.navItem}
+              onClick={() => dispatch(cartActions.displayCart())}
+              className={
+                nav === "Horizontal" ? styles.navItem : styles.navItemRow
+              }
               style={(isActive) => (!isActive ? { color: "red" } : null)}
             >
               <img
                 className={styles.icon}
+                // style={{ marginRight: "15px" }}
                 src="https://cdn-icons-png.flaticon.com/128/3514/3514491.png"
                 alt="Cart icon"
               />
@@ -48,7 +76,9 @@ export default function HorizontalNavBar() {
             </NavLink>
             <NavLink
               to="/"
-              className={styles.navItem}
+              className={
+                nav === "Horizontal" ? styles.navItem : styles.navItemRow
+              }
               style={(isActive) => (!isActive ? { color: "red" } : null)}
             >
               <img
