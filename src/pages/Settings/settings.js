@@ -20,7 +20,7 @@ export default function Settings() {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(viewActions.setViews({ nav, catalog, card }));
-          navigate("view");
+          navigate("");
         }}
       >
         <h1 className={styles.title}>Choose Your View: </h1>
