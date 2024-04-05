@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Card.module.css";
 import { viewSelector } from "../../redux/Reducers/viewReducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +8,11 @@ const stars = [1, 2, 3, 4, 5];
 export default function Card({ product, index }) {
   const dispatch = useDispatch();
 
+  // Icon for heart.
   const heart = "https://cdn-icons-png.flaticon.com/128/1077/1077035.png";
   const heartFill = "https://cdn-icons-png.flaticon.com/128/4926/4926592.png";
 
+  // View and cart state
   const { card } = useSelector(viewSelector);
   const { showCart } = useSelector(cartSelector);
 
@@ -22,6 +23,7 @@ export default function Card({ product, index }) {
 
   return (
     <div className={styles.card}>
+      {/* If cart is not premium heart button is used for adding to cart */}
       {card === "Premium" ? (
         <></>
       ) : (
@@ -42,7 +44,7 @@ export default function Card({ product, index }) {
 
       {/* Image container */}
       <div className={styles.imgContainer}>
-        <img src={product.image} className={styles.img} />
+        <img src={product.image} className={styles.img} alt="product Image" />
       </div>
 
       {/* Title, the size of title is set to 30 characters */}
@@ -52,7 +54,8 @@ export default function Card({ product, index }) {
           : product.title.substring(0, 30) + "..."}
       </span>
 
-      {/* Container for price and Tag. Conditional Rednering is done such that is the card is for cart page, quantity buttons is shown else category is shown */}
+      {/* Container for price and Tag. Conditional Rednering is done such that is the card 
+      is for cart page, quantity buttons is shown else category is shown */}
       <div className={styles.priceTag}>
         {card === "Standard" ? (
           <></>
@@ -64,6 +67,7 @@ export default function Card({ product, index }) {
         <h4 className={styles.price}>${product.price}</h4>
       </div>
 
+      {/* Stars are render for shhowing rating */}
       <div className={styles.stars}>
         {card === "Standard" ? (
           <div className={styles.standardStar}>
@@ -81,6 +85,7 @@ export default function Card({ product, index }) {
                     ? "https://cdn-icons-png.flaticon.com/128/2107/2107957.png"
                     : "https://cdn-icons-png.flaticon.com/128/1828/1828970.png"
                 }
+                alt="star"
               />
             );
           })
@@ -91,7 +96,6 @@ export default function Card({ product, index }) {
       </div>
 
       {/* On conditional rendering, if cart is true, delete button is shown else add to cart button is shown */}
-
       {card === "Standard" ? (
         <></>
       ) : !showCart ? (

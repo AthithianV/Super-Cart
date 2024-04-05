@@ -10,6 +10,7 @@ export const viewSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
+    // to set views for the site.
     setViews: (state, action) => {
       const { nav, catalog, card } = action.payload;
       state.nav = nav;

@@ -12,8 +12,12 @@ export default function View() {
   const { showCart } = useSelector(cartSelector);
 
   return (
+    // When horizontal is chosen for nav, then col is set for call else row,
+    // col class will render nav and view sections in row
+    // row class will render nav and view sections in column.
     <div className={nav === "Horizontal" ? styles.col : styles.row}>
       <NavBar />
+      {/* Conditional rendering for catalog. */}
       {catalog === "Carousal" ? <Carousal /> : <PageView />}
       {showCart ? <Cart /> : <></>}
     </div>

@@ -83,6 +83,7 @@ export default function Settings() {
           </tbody>
         </table>
 
+        {/* Button to submit the form */}
         <button className={styles.btn} type="submit">
           Go Shopping
           <img

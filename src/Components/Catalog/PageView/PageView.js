@@ -14,6 +14,7 @@ export default function PageView() {
   const { products } = useSelector(productSelector);
   const dispatch = useDispatch();
 
+  // When value of page is changed additional products are picked.
   useEffect(() => {
     dispatch(getProducts(page * 4));
   }, [dispatch, page]);
@@ -29,6 +30,10 @@ export default function PageView() {
           <Card key={index} product={product} />
         ))}
       </div>
+      {/* If all products are exhausted show more button is hidden
+      Since fakestoreAPi contains only 20 products this conditional
+      rendering is done but if we have lots of product this can be 
+      remove to provide infinite scrolling */}
       {page * 4 < 20 ? (
         <div
           className={styles.more}

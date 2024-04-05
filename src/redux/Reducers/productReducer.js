@@ -20,14 +20,17 @@ export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
+    // to setItemsPerpage this set how many card are at screen.
     setItemsPerPage: (state, action) => {
       state.items_per_page = action.payload;
     },
+    // To increment page, helpful in loading more products
     incrementPage: (state, action) => {
       if (state.items_per_page * (state.page + 1) < 20) {
         state.page = state.page + 1;
       }
     },
+    // Decremtn page to more to previous page
     decrementPage: (state, action) => {
       if (state.page > 0) {
         state.page = state.page - 1;

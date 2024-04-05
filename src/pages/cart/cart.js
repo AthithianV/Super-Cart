@@ -10,6 +10,7 @@ export default function Cart() {
   return (
     <div className={styles.main}>
       <div className={styles.cart}>
+        {/* This icon located at top right corner of cart modal is for hiding the cart modal */}
         <img
           onClick={() => dispatch(cartActions.hideCart())}
           className={styles.close}
@@ -22,6 +23,7 @@ export default function Cart() {
           </h1>
         </div>
 
+        {/* When cart is empty empty message is displayed */}
         {cart.length === 0 ? (
           <h1 className={styles.emptyMsg}>
             <img
@@ -32,6 +34,7 @@ export default function Cart() {
             Your cart is Empty
           </h1>
         ) : (
+          // Rendering of Products
           <div className={styles.products}>
             {cart.map((p, index) => (
               <Card product={p} index={index} key={index} />
