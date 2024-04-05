@@ -89,6 +89,7 @@ export default function Settings() {
           <img
             src="https://cdn-icons-png.flaticon.com/128/2430/2430422.png"
             className={styles.icon}
+            alt="Cart"
           />
         </button>
       </form>
