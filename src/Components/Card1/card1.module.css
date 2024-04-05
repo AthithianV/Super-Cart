@@ -1,0 +1,160 @@
+/* Style for card */
+
+/* .container{
+
+} */
+
+.card {
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 1rem -0.5rem black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    flex: 0 0 calc(90%/var(--items-per-screen));
+    margin: 0 5%;
+    height: 500px;
+}
+
+.card:hover {
+    box-shadow: 0 0 1rem -0.2rem black;
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    height: 225px;
+    width: 200px;
+}
+
+.title {
+    margin-top: 10px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.priceTag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.price {
+    margin: 0;
+    font-size: 1.3rem;
+    margin: 10px 0;
+}
+
+.tag {
+    background-color: white;
+    color: purple;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid purple;
+}
+
+.stars{
+    display: flex;
+    margin: 5px 0;
+}
+
+.star{
+    height: 25px;
+    width: 25px;
+    margin-right: 3px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid purple;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: purple;
+}
+
+.removeBtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid rgb(229, 2, 2);
+    background-color: rgb(229, 2, 2);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.removeBtn:hover {
+    background-color: #fff;
+    color: red;
+}
+
+.countContainer {
+    font-size: 1.2rem;
+}
+
+.countBtn {
+    border: 2px black solid;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.countBtn:hover {
+    background-color: white;
+    color: black;
+}
+
+.plus {
+    border-radius: 0 5px 5px 0;
+    padding: 2px 7px;
+}
+
+.minus {
+    border-radius: 5px 0 0 5px;
+    padding: 2px 8px;
+}
+
+.quantity {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    padding: 4px 6px;
+}
+
+@media screen and (min-width: 500px) {
+    .card{
+        flex: 0 0 calc(50%/var(--items-per-screen));
+        margin: 1%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .card {
+        flex: 0 0 calc(25%/var(--items-per-screen));
+    }
+    .img{
+        width: 220px;
+    }
+}
